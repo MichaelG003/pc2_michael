@@ -1,0 +1,24 @@
+@model appGestionBanco.Models.CuentaBanco
+
+<h2>Abrir Nueva Cuenta Bancaria</h2>
+
+<form asp-action="CrearCuenta">
+    <div class="form-group">
+        <label for="NombreTitular">Nombre del Titular</label>
+        <input class="form-control" asp-for="NombreTitular" />
+    </div>
+    <div class="form-group">
+        <label for="TipoCuenta">Tipo de Cuenta</label>
+        <input class="form-control" asp-for="TipoCuenta" />
+    </div>
+    <div class="form-group">
+        <label for="SaldoInicial">Saldo Inicial ($)</label>
+        <input class="form-control" asp-for="SaldoInicial" />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input class="form-control" asp-for="Email" />
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+</form>
+
