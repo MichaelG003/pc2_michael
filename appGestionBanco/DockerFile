@@ -2,18 +2,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
-# Copiar el archivo .csproj desde la carpeta "appGestion banco"
-COPY "appGestionBanco/*.csproj" ./
+# Copiar el archivo .csproj y restaurar dependencias
+COPY ./*.csproj ./
 RUN dotnet restore
 
 # Copiar el resto del contenido del proyecto
-COPY "appGestionBanco/" ./
+COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Usar la imagen de runtime de .NET para la ejecución
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build-env /app/out .
+COPY --from=build-env /app/out ./
 
 # Configuración del entorno
 ENV APP_NET_CORE appGestionBanco.dll
