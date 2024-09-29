@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
 # Copiar el archivo .csproj y restaurar dependencias
-COPY ./*.csproj ./
+COPY appGestionBanco.csproj ./
 RUN dotnet restore
 
 # Copiar el resto del contenido del proyecto
